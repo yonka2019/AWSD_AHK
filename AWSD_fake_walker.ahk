@@ -8,11 +8,11 @@
 isRunning := false
 currentKey := ""
 
-global HOLD_TIME_MIN_SECONDS := 1000
-global HOLD_TIME_MAX_SECONDS := 3000
+global HOLD_TIME_MIN_SECONDS := 200
+global HOLD_TIME_MAX_SECONDS := 1000
 
-global RELEASE_WAIT_TIME_MIN_SECONDS := 500
-global RELEASE_WAIT_TIME_MAX_SECONDS := 5000
+global RELEASE_WAIT_TIME_MIN_SECONDS := 50
+global RELEASE_WAIT_TIME_MAX_SECONDS := 250
 
 
 ToolTip("AHK AWSD Fake Walker`n- F1 - Start`n- F2 - Stop")
