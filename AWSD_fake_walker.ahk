@@ -2,7 +2,7 @@
 
 ; Random WASD Key Holder
 ; Press F1 to start, F2 to stop
-; Randomly holds A, W, S, or D keys for 3-10 seconds, with 1-5 second pauses between
+; Randomly holds A, W, S, or D keys for X seconds, with X second pauses between
 
 ; Initialize variable to track if the script is running
 isRunning := false
@@ -15,7 +15,7 @@ global RELEASE_WAIT_TIME_MIN_SECONDS := 500
 global RELEASE_WAIT_TIME_MAX_SECONDS := 5000
 
 
-ToolTip("AHK Among Us Walker`n- F1 - Start`n- F2 - Stop")
+ToolTip("AHK AWSD Fake Walker`n- F1 - Start`n- F2 - Stop")
 SetTimer(RemoveToolTip, -2000)
 
 
