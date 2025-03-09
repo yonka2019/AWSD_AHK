@@ -16,7 +16,7 @@ global RELEASE_WAIT_TIME_MAX_SECONDS := 5000
 
 
 ToolTip("AHK AWSD Fake Walker`n- F1 - Start`n- F2 - Stop")
-SetTimer(RemoveToolTip, -2000)
+SetTimer(RemoveToolTip, -1000)
 
 
 ; F1 to start the random key holding
@@ -24,7 +24,7 @@ F1::
 {
     global isRunning
     isRunning := true
-    ToolTip("Random key holder started. Press F2 to stop.")
+    ToolTip("[RUNNING SCRIPT] Press F2 to stop")
     SetTimer(RemoveToolTip, -3000)
     RandomKeyHold()
     return
@@ -41,7 +41,7 @@ F2::
         Send("{" currentKey " up}")
     
     currentKey := ""
-    ToolTip("Random key holder stopped.")
+    ToolTip("[STOPPED SCRIPT] Press F1 to start")
     SetTimer(RemoveToolTip, -3000)
     return
 }
@@ -71,9 +71,7 @@ RandomKeyHold()
     
     ; Generate random hold duration
     holdDuration := Random(HOLD_TIME_MIN_SECONDS, HOLD_TIME_MAX_SECONDS)
-    
-    ; Display which key is being held and for how long
-    ToolTip("Holding " randomKey " for " Round(holdDuration/1000, 1) " seconds")
+    ToolTip("[HOLDING: " randomKey "] " Round(holdDuration/1000, 1) " seconds")
     
     ; Set timer to release the key
     SetTimer(ReleaseKey, -holdDuration)
@@ -92,10 +90,10 @@ ReleaseKey()
         Send("{" currentKey " up}")
     
     currentKey := ""
-    ToolTip("Released key, waiting before next press")
     
     ; Generate random pause
     pauseDuration := Random(RELEASE_WAIT_TIME_MIN_SECONDS, RELEASE_WAIT_TIME_MAX_SECONDS)
+    ToolTip("[RELEASE] " Round(pauseDuration/1000, 1) " seconds")
     
     ; Schedule the next key hold after the pause
     SetTimer(RandomKeyHold, -pauseDuration)
